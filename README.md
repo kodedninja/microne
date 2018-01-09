@@ -25,7 +25,7 @@ Simply download the ```microne.js``` file and include it.
   </script>
 </body>
 ```
-or check out the [example](https://github.com/kodedninja/microne/tree/master/example).
+or check out the [example](https://github.com/kodedninja/microne/tree/master/example) (audio not included due to file size).
 
 ## API
 ### ```new Microne(parent_el)```
