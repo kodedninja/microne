@@ -1,6 +1,8 @@
 # microne
 A tiny, minimalistic music player element. It's around **2 kilobytes** and it's **super beautiful**.
 
+![Screenshot](https://github.com/kodedninja/microne/blob/master/SCREENSHOT.png)
+
 ## Installation
 ### From CDN
 Include with ```<script src="https://unpkg.com/microne/microne.js"></script>```
@@ -16,7 +18,7 @@ Simply download the ```microne.js``` file and include it.
 ```html
 <body>
   <div id="player"></div>
-  
+
   <script src="https://unpkg.com/microne/microne.js"></script>
   <script>
     var m = new Microne(document.getElementById('player'))
