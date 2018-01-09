@@ -1,0 +1,23 @@
+{
+  "name": "microne",
+  "version": "0.1.0",
+  "description": "A minimalistic music player element",
+  "main": "microne.js",
+  "scripts": {
+    "test": "xo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kodedninja/microne.git"
+  },
+  "keywords": [
+    "music",
+    "music-player"
+  ],
+  "author": "kodedninja",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kodedninja/microne/issues"
+  },
+  "homepage": "https://github.com/kodedninja/microne#readme"
+}
