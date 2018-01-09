@@ -1,7 +1,7 @@
 {
   "name": "microne",
-  "version": "0.1.1",
-  "description": "A minimalistic music player element",
+  "version": "0.1.2",
+  "description": "A minimalistic music player",
   "main": "microne.js",
   "scripts": {
     "test": ""

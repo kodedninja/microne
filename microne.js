@@ -31,13 +31,11 @@ function Microne(parent_el) {
 	this.play_button.style.height = '25px'
 	this.play_button.style.transform = 'translate(-50%, -50%)'
 	this.play_button.style.textAlign = 'center'
-	this.play_button.style.margin = 'none'
 	this.play_button.style.fontWeight = 'bold'
 	this.el.appendChild(this.play_button)
 
 	this.init = function () {
 		parent_el.appendChild(this.el)
-
 		this.el.addEventListener('click', el_click)
 		this.play_button.addEventListener('click', play_click)
 	}
@@ -45,18 +43,19 @@ function Microne(parent_el) {
 	this.source = function (src) {
 		this.audio = new Audio(src)
 		this.audio.addEventListener('timeupdate', time_update)
+		this.audio.addEventListener('ended', audio_ended)
 	}
 
 	this.play = function () {
+		this.is_playing = true
 		this.audio.play()
-
 		this.play_button.innerHTML = this.s_char
 		this.el.style.cursor = 'pointer'
 	}
 
 	this.pause = function () {
+		this.is_playing = false
 		this.audio.pause()
-
 		this.play_button.innerHTML = this.p_char
 		this.el.style.cursor = 'auto'
 	}
@@ -67,26 +66,26 @@ function Microne(parent_el) {
 
 		if (e.target != t.play_button && t.is_playing) {
 			x = e.pageX - t.el.offsetLeft
-			const r = (x * 100 / t.el.offsetWidth)
-			t.audio.currentTime = t.audio.duration * r / 100
+			t.audio.currentTime = t.audio.duration * (x * 100 / t.el.offsetWidth) / 100
 		}
 	}
 
 	function play_click(e) {
 		e.preventDefault()
 
-		if (t.is_playing) {
-			t.pause()
-		} else {
-			t.play()
-		}
-
-		t.is_playing = !t.is_playing
+		if (t.is_playing) t.pause()
+		else t.play()
 	}
 
 	function time_update(e) {
 		const at = (t.audio.currentTime * 100 / t.audio.duration).toFixed(3)
 		t.fill_el.style.width = at + '%'
+	}
+
+	function audio_ended() {
+		t.pause();
+		t.audio.currentTime = 0;
+		t.fill_el.style.width = '0%';
 	}
 
 	this.init()
