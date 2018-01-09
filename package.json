@@ -4,7 +4,7 @@
   "description": "A minimalistic music player element",
   "main": "microne.js",
   "scripts": {
-    "test": "xo"
+    "test": ""
   },
   "repository": {
     "type": "git",
