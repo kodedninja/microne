@@ -1,7 +1,6 @@
-# microne
-A tiny, minimalistic music player element. It's around **2 kilobytes** and it's **super beautiful**.
-
 ![Screenshot](https://github.com/kodedninja/microne/blob/master/SCREENSHOT.png)
+
+A tiny, minimalistic JS music player. It's around **2 kilobytes** and it's **super beautiful**.
 
 ## Installation
 ### From CDN
