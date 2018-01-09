@@ -24,9 +24,10 @@ function Microne(parent_el) {
 	this.play_button.style.cursor = 'pointer'
 	this.play_button.style.position = 'absolute'
 	this.play_button.style.top = '50%'
-	this.play_button.style.transform = 'translateY(-50%)'
-	this.play_button.style.pointerEvents = 'none'
-	this.play_button.style.width = '100%'
+	this.play_button.style.left = '50%'
+	this.play_button.style.width = '25px'
+	this.play_button.style.height = '25px'
+	this.play_button.style.transform = 'translate(-50%, -50%)'
 	this.play_button.style.textAlign = 'center'
 	this.play_button.style.margin = 'none'
 	this.play_button.style.fontWeight = 'bold'
@@ -36,6 +37,7 @@ function Microne(parent_el) {
 		parent_el.appendChild(this.el)
 
 		this.el.addEventListener('click', el_click)
+		this.play_button.addEventListener('click', play_click)
 	}
 
 	this.source = function(src) {
@@ -59,6 +61,17 @@ function Microne(parent_el) {
 	function el_click(e) {
 		e.preventDefault()
 
+		if (e.target != t.play_button && t.is_playing) {
+			x = e.pageX - t.el.offsetLeft
+			var r = (x * 100 / t.el.offsetWidth)
+			t.audio.currentTime = t.audio.duration * r / 100
+		}
+
+	}
+
+	function play_click(e) {
+		e.preventDefault()
+
 		if (t.is_playing) {
 			t.pause();
 		} else {
@@ -69,7 +82,7 @@ function Microne(parent_el) {
 	}
 
 	function time_update(e) {
-		var at =  (t.audio.currentTime * 100 / t.audio.duration).toFixed(3)
+		var at = (t.audio.currentTime * 100 / t.audio.duration).toFixed(3)
 		t.fill_el.style.width = at + '%'
 	}
 
