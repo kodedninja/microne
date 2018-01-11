@@ -1,6 +1,7 @@
 function Microne(parent_el) {
 	this.audio = null
 	this._src_ = null
+	this._events_ = []
 	this.is_playing = false
 
 	this.p_char = '>'
@@ -53,6 +54,7 @@ function Microne(parent_el) {
 	this.play = function () {
 		if (!this.audio && this._src_) {
 			this.source(this._src_)
+			this._apply_events_()
 		}
 
 		this.is_playing = true
@@ -68,8 +70,16 @@ function Microne(parent_el) {
 		this.el.style.cursor = 'auto'
 	}
 
+	this._apply_events_ = function() {
+		for (var i in this._events_) {
+			this.audio.addEventListener(this._events_[i].e, this._events_[i].h)
+		}
+		this._events_ = []
+	}
+
 	this.on = function (e, h) {
-		this.audio.addEventListener(e, h)
+		this._events_.push({e: e, h: h})
+		if (this.audio) this.audio.addEventListener(e, h)
 	}
 
 	const t = this

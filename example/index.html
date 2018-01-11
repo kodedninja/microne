@@ -26,6 +26,10 @@
 		<script>
 			var m = new Microne(document.getElementById('player'))
 			m.source('media/audio.mp3', false)
+
+			m.on('ended', function(e) {
+				console.log('Audio ended.')
+			})
 		</script>
 	</body>
 </html>
