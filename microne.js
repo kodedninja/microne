@@ -70,7 +70,7 @@ function Microne(parent_el) {
 		this.el.style.cursor = 'auto'
 	}
 
-	this._apply_events_ = function() {
+	this._apply_events_ = function () {
 		for (var i in this._events_) {
 			this.audio.addEventListener(this._events_[i].e, this._events_[i].h)
 		}
@@ -78,11 +78,13 @@ function Microne(parent_el) {
 	}
 
 	this.on = function (e, h) {
-		this._events_.push({e: e, h: h})
-		if (this.audio) this.audio.addEventListener(e, h)
+		this._events_.push({e, h})
+		if (this.audio) {
+			this.audio.addEventListener(e, h)
+		}
 	}
 
-	const t = this
+	var t = this
 	function el_click(e) {
 		e.preventDefault()
 
@@ -97,13 +99,13 @@ function Microne(parent_el) {
 
 		if (t.is_playing) {
 			t.pause()
-		}		else {
+		} else {
 			t.play()
 		}
 	}
 
 	function time_update(e) {
-		const at = (t.audio.currentTime * 100 / t.audio.duration).toFixed(3)
+		var at = (t.audio.currentTime * 100 / t.audio.duration).toFixed(3)
 		t.fill_el.style.width = at + '%'
 	}
 
