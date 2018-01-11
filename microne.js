@@ -68,8 +68,8 @@ function Microne(parent_el) {
 		this.el.style.cursor = 'auto'
 	}
 
-	this.on = function(e, h) {
-		this.audio.addEventListener(e, h);
+	this.on = function (e, h) {
+		this.audio.addEventListener(e, h)
 	}
 
 	const t = this
@@ -85,8 +85,11 @@ function Microne(parent_el) {
 	function play_click(e) {
 		e.preventDefault()
 
-		if (t.is_playing) t.pause()
-		else t.play()
+		if (t.is_playing) {
+			t.pause()
+		}		else {
+			t.play()
+		}
 	}
 
 	function time_update(e) {
@@ -95,9 +98,9 @@ function Microne(parent_el) {
 	}
 
 	function audio_ended() {
-		t.pause();
-		t.audio.currentTime = 0;
-		t.fill_el.style.width = '0%';
+		t.pause()
+		t.audio.currentTime = 0
+		t.fill_el.style.width = '0%'
 	}
 
 	this.init()
