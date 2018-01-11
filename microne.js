@@ -60,6 +60,10 @@ function Microne(parent_el) {
 		this.el.style.cursor = 'auto'
 	}
 
+	this.on = function(e, h) {
+		this.audio.addEventListener(e, h);
+	}
+
 	const t = this
 	function el_click(e) {
 		e.preventDefault()
