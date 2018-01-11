@@ -31,11 +31,14 @@ or check out the [example](https://github.com/kodedninja/microne/tree/master/exa
 ### ```new Microne(parent_el)```
 Makes a new player and appends it to the ```parent_el``` element. ```parent_el``` must have a specified ```width``` and ```height``` and microne fills it.
 
-### ```m.source(href)```
-Sets the source of the player to ```href```.
+### ```m.source(href[, preload])```
+Sets the source of the player to ```href```. If ```preload``` (optional) is ```false``` the audio will only be loaded at play. Default is ```true```.
 
 ### ```m.play()```
 Start playing.
 
 ### ```m.pause()```
 Pause playing.
+
+### ```m.on(event, handler)```
+Add an event to the audio element. [See possible events here.](https://www.w3schools.com/tags/ref_av_dom.asp)
