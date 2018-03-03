@@ -8,32 +8,38 @@ function Microne(parent_el) {
 	this.s_char = '||'
 
 	this.el = document.createElement('div')
-	this.el.style.width = '100%'
-	this.el.style.height = '100%'
-	this.el.style.border = '1px solid #000'
-	this.el.style.cursor = 'auto'
-	this.el.style.position = 'relative'
+	_apply_style(this.el, {
+		width: '100%',
+		height: '100%',
+		border: '1px solid #000',
+		cursor: 'auto',
+		position: 'relative'
+	})
 
 	this.fill_el = document.createElement('div')
-	this.fill_el.style.background = '#eee'
-	this.fill_el.style.height = '100%'
-	this.fill_el.style.width = '0%'
-	this.fill_el.style.pointerEvents = 'none'
+	_apply_style(this.fill_el, {
+		background: '#eee',
+		height: '100%',
+		width: '0%',
+		pointerEvents: 'none'
+	})
 	this.el.appendChild(this.fill_el)
 
 	this.play_button = document.createElement('div')
 	this.play_button.innerHTML = this.p_char
-	this.play_button.style.cursor = 'pointer'
-	this.play_button.style.fontFamily = 'monospace'
-	this.play_button.style.fontSize = '14px'
-	this.play_button.style.position = 'absolute'
-	this.play_button.style.top = '50%'
-	this.play_button.style.left = '50%'
-	this.play_button.style.width = '25px'
-	this.play_button.style.height = '25px'
-	this.play_button.style.transform = 'translate(-50%, -50%)'
-	this.play_button.style.textAlign = 'center'
-	this.play_button.style.fontWeight = 'bold'
+	_apply_style(this.play_button, {
+		cursor: 'pointer',
+		fontFamily: 'monospace',
+		fontSize: '14px',
+		position: 'absolute',
+		top: '50%',
+		left: '50%',
+		width: '25px',
+		height: '25px',
+		transform: 'translate(-50%, -50%)',
+		textAlign: 'center',
+		fontWeight: 'bold'
+	})
 	this.el.appendChild(this.play_button)
 
 	this.init = function () {
@@ -85,6 +91,11 @@ function Microne(parent_el) {
 	}
 
 	var t = this
+
+	function _apply_style(dom_elem, style) {
+		Object.assign(dom_elem.style, style)
+	}
+
 	function el_click(e) {
 		e.preventDefault()
 
