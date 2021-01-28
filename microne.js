@@ -100,7 +100,8 @@ function Microne(parent_el) {
 		e.preventDefault()
 
 		if (e.target != t.play_button && t.is_playing) {
-			x = e.pageX - t.el.offsetLeft
+            var rect = t.el.getBoundingClientRect();
+            x = e.pageX - rect.left
 			t.audio.currentTime = t.audio.duration * (x * 100 / t.el.offsetWidth) / 100
 		}
 	}
