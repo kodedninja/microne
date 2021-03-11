@@ -1,0 +1,138 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="minimalistic javascript music player library">
+  	<meta name="keywords" content="music, javascript, plugin, library, html, minimal">
+  	<meta name="author" content="kodedninja">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>MICRONE</title>
+		<style>			
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    ::-moz-selection { color: #fff; background: #000; }
+    ::selection { color: #fff; background: #000; }
+
+    html { font-size: 13px }
+
+    body, pre {
+    	font-family: monospace;
+    	line-height: 1.6;
+        font-size: 1rem;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    a:not(.nbb) {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.2em;
+    }
+
+    /* Typography */
+
+    h1, h2, h3, .f1, .f2, .f3 { font-family: 'helvetica neue', helvetica, sans-serif; }
+
+    h2, .f2 { font-size: 2.25rem; }
+
+    .tac { text-align: center }
+
+    .ffh { font-family: 'helvetica neue', helvetica, sans-serif; }
+    .ffmono { font-family: monospace }
+
+    .fwb { font-weight: bold; }
+    .fwn { font-weight: normal; }
+
+    .tcgrey, .tcgrey a { color: #999 }
+    .tcwhite, .tcwhite a { color: #fff }
+    .tcblack, .tcblack a { color: #000 }
+
+    p {
+    	margin: 2rem 0;
+    }
+
+    /* Blocks */
+
+    .db { display: block; }
+    .dib { display: inline-block; }
+
+    .fl { float: left; }
+    .fr { float: right; }
+
+    .p0-5 { padding: 0.75rem }
+    .p1 { padding: 1.5rem }
+    .p2 { padding: 3rem }
+    .px1 { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .pt1 { padding-top: 1.5rem }
+
+    .m0 { margin: 0 }
+    .my1 { margin: 1.5rem 0 }
+    .mx1 { margin: 0 1.5rem }
+    .mr1 { margin-right: 1.5rem }
+    .mt1 { margin-top: 1.5rem }
+    .mb1 { margin-bottom: 1.5rem }
+    .my2 { margin: 3rem 0 }
+    .mt2 { margin-top: 3rem }
+    .mb2 { margin-bottom: 3rem }
+    .mt3 { margin-top: 4rem }
+    .my3 {margin: 10rem 0; }
+    .mxa { margin-left: auto; margin-right: auto; }
+
+    /* Media query customs */
+
+    @media (max-width: 900px) {
+      p0-5 { padding: 0.5rem }
+      .p1 { padding: 1rem }
+      .p2 { padding: 1.5rem }
+      .pt1 { padding-top: 1rem }
+      .px1 { padding-left: 0.75rem; padding-right: 0.75rem; }
+      .m0 { margin: 0 }
+      .my2 { margin: 1.5rem 0 }
+    	.mt1 { margin-top: 1rem }
+      .mt2 { margin-top: 1.5rem }
+    	.mb2 { margin-bottom: 1.5rem }
+      .mt3 { margin-top: 2rem }
+    }
+		</style>
+	</head>
+	<body>
+		<div class="p2 db c100">
+			<div class="c3rd m-c100 mxa">
+				<div class="db f2 mb2 tac">MICRONE</div>
+				<div class="tcgrey mb2 tac">
+					minimalistic music player library.<br>
+					<br>
+					nothing more.
+				</div>
+				<div class="db c100 my3">
+					<div class="db mxa">
+						<div id="player1" class="mxa" style="width: 200px; height: 200px;"></div>
+					</div>
+				</div>
+				<div class="mt2 tac tcgrey">
+					&lt;script src="https://unpkg.com/microne/microne.js"&gt;&lt;/script&gt;
+				</div>
+				<div class="mt2 tac tcgrey">
+				<a href="https://github.com/kodedninja/microne" target="_blank">documentation</a>.
+				</div>
+				<div class="mt2 tac tcgrey">
+					made with love by <a href="http://hex22.org" target="_blank">kodedninja</a>.
+				</div>
+			</div>
+		</div>
+
+		<script src="https://unpkg.com/microne/microne.js"></script>
+		<script>
+			var p1 = new Microne(document.getElementById('player1'))
+			p1.source('https://hex22.s3-eu-west-1.amazonaws.com/audio/remebering-earth.mp3')
+			setTimeout(function() {
+				p1.play()
+			}, 2000)
+		</script>
+	</body>
+</html>
+
